@@ -18,33 +18,33 @@ Route::get('/', function () {
 });
 
 Route::get('/users', function () {
-    return view('users');
+    return view('user.users');
 });
 
 Route::get('/payments', function () {
-    return view('payments');
+    return view('payment.payments');
 });
 
 Route::get('/products', function () {
-    return view('products');
+    return view('product.products');
 });
 
 Route::get('/locations', function () {
-    return view('locations');
+    return view('location.locations');
 });
 
 Route::get('/invoice', function () {
-    return view('invoice');
+    return view('invoice.invoice');
 });
 
 Route::get('/receipts', function () {
-    return view('receipts');
+    return view('receipt.receipts');
 });
 
 Route::get('/orders', function () {
-    return view('orders');
+    return view('order.orders');
 });
 
 Route::get('/customers', function () {
-    return view('customers');
+    return view('customer.customers');
 });
