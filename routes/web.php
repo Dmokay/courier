@@ -33,6 +33,11 @@ Route::get('/locations', function () {
     return view('location.locations');
 });
 
+Route::get('/newlocation', function () {
+    return view('location.new_location');
+});
+
+
 Route::get('/invoice', function () {
     return view('invoice.invoice');
 });

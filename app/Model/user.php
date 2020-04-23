@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class location extends Model
+class user extends Model
 {
     //
 }
