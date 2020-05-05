@@ -20,16 +20,16 @@
                                             <i class='uil uil-file-alt mr-1'></i>USERS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="index.html#" class="dropdown-item notify-item">
+                                            <a href="{{route('user.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create User</span>
                                             </a>
-                                            <a href="index.html#" class="dropdown-item notify-item">
+                                            <a href="{{route('user.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="printer" class="icon-dual icon-xs mr-2"></i>
                                                 <span>View</span>
                                             </a>
                                             <div class="dropdown-divider"></div>
-                                            <a href="index.html#" class="dropdown-item notify-item">
+                                            <a href="{{route('user.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="file" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Update</span>
                                             </a>
@@ -49,51 +49,54 @@
                                             <table class="table m-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
+                                                    
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Email Verification</th>
+                                                        <th>Password</th>
+                                                        <th>Id No.</th>
+                                                        <th>Phone No.</th>
+                                                        <th>Role</th>
+                                                        <th>Actions</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                     @foreach ($users as $user)
+
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
+                                                
+                                                        <td>{{$user->name}}</td>
+                                                        <td>{{$user->email}}</td>
+                                                        <td>{{$user->email_verified_at}}</td>
+                                                        <td>{{$user->password}}</td>
+                                                        <td>{{$user->id_no}}</td>
+                                                        <td>{{$user->phone_no}}</td>
+                                                        <td>{{$user->role}}</td>
+                                                        
+
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('users')}}">View</a></button>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('users')}}">Edit</a></button>
+                                                        </td>
+                                                         <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('users')}}">Delete</a></button>
+                                                        </td>
+                                                       
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
+
+                                                    @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
-
-                            </div>
+                             </div>
                         </div>
-                        <!-- end row -->
+    <!-- end row -->
 
 @endsection

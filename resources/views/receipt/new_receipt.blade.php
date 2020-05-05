@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>RECEIPTS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{url('newreceipt')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('receipt.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create</span>
                                             </a>
@@ -48,7 +48,7 @@
                                         <div class="col-md-6 grid-margin stretch-card">
                                             <div class="card">
                                                 <div class="card-body">
-                                                <form class="forms-sample" form method="post" action="{{url('save-location')}}">
+                                                <form class="forms-sample" form method="post" action="{{route('receipt.save')}}">
                                                      @csrf
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Amount</label>

@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>ORDERS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{url('neworder')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('order.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create Order</span>
                                             </a>
@@ -49,51 +49,52 @@
                                             <table class="table m-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
+                                                    
+                                                        <th>Product Id</th>
+                                                        <th>Customer Id</th>
+                                                        <th>From</th>
+                                                        <th>To</th>
+                                                        <th>Description</th>
+                                                        <th>Stage</th>
+                                                        <th>Actions</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                     @foreach ($orders as $order)
+
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
+                                                
+                                                        <td>{{$order->product_id}}</td>
+                                                        <td>{{$order->customer_id}}</td>
+                                                        <td>{{$order->from}}</td>
+                                                        <td>{{$order->to}}</td>
+                                                        <td>{{$order->description}}</td>
+                                                        <td>{{$order->stage}}</td>
+                                                        
+
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('orders')}}">View</a></button>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('orders')}}">Edit</a></button>
+                                                        </td>
+                                                         <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('orders')}}">Delete</a></button>
+                                                        </td>
+                                                       
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
+
+                                                    @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
-
-                            </div>
+                             </div>
                         </div>
-                        <!-- end row -->
+    <!-- end row -->    
 
 @endsection

@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>CUSTOMERS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{url('newcustomer')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('customer.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create</span>
                                             </a>
@@ -48,10 +48,10 @@
                                         <div class="col-md-6 grid-margin stretch-card">
                                             <div class="card">
                                                 <div class="card-body">
-                                                <form class="forms-sample" form method="post" action="{{url('save-location')}}">
+                                                <form class="forms-sample" form method="post" action="{{route('customer.save')}}">
                                                      @csrf
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail1"> Name</label>
+                                                            <label for="exampleInputEmail1">Name</label>
                                                             <input type="text" class="form-control" name="name" placeholder="Name">
                                                         </div>
                                                         <div class="form-group">

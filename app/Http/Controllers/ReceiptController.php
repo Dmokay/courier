@@ -14,7 +14,8 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        //
+        $receipts = Receipt::all();
+        return view('receipt.receipts', compact('receipts'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ReceiptController extends Controller
      */
     public function create()
     {
-        //
+         return view('receipt.new_receipt');
     }
 
     /**
@@ -35,7 +36,9 @@ class ReceiptController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $receipt = new Receipt($request->all());
+        $receipt->save();
+        return redirect()->route('receipt.index');
     }
 
     /**

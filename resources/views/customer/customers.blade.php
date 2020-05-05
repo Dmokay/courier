@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>CUSTOMERS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{url('newcustomer')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('customer.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create Customer</span>
                                             </a>
@@ -49,51 +49,48 @@
                                             <table class="table m-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
+                                                    
+                                                        <th>Name</th>
+                                                        <th>Id Number</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                     @foreach ($customers as $customer)
+
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
+                                                
+                                                        <td>{{$customer->name}}</td>
+                                                        <td>{{$customer->id_no}}</td>
+                                                        <td>{{$customer->phone_no}}</td>
+                                                        <td>{{$customer->status}}</td>
+                                                        
+
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('customers')}}">View</a></button>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('customers')}}">Edit</a></button>
+                                                        </td>
+                                                         <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('customers')}}">Delete</a></button>
+                                                        </td>
+                                                       
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
+
+                                                    @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
-
-                            </div>
+                             </div>
                         </div>
-                        <!-- end row -->
-
-@endsection
+    <!-- end row -->    
+            
+@endsection 

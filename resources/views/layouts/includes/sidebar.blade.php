@@ -50,7 +50,7 @@
                             <li class="menu-title">Navigation</li>
 
                             <li>
-                                <a href="{{url('users')}}">
+                                <a href="{{route('user.index')}}">
                                     <i data-feather="home"></i>
                                     <span class="badge badge-success float-right">1</span>
                                     <span> Users </span>
@@ -58,31 +58,31 @@
                             </li>
                             <li class="menu-title">Client Side</li>
                             <li>
-                                <a href="{{url('payments')}}">
+                                <a href="{{route('payment.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Payments </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('products')}}">
+                                <a href="{{route('product.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Products </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('locations')}}">
+                                <a href="{{route('location.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Locations </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('invoice')}}">
+                                <a href="{{route('invoice.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Invoice </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('receipts')}}">
+                                <a href="{{route('receipt.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Receipts </span>
                                 </a>

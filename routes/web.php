@@ -17,62 +17,54 @@ Route::get('/', function () {
     return view('panel');
 });
 
-Route::get('/users', function () {
-    return view('user.users');
-});
+Route::get('/users', 'UserController@index')->name('user.index');
 
-Route::get('/payments', function () {
-    return view('payment.payments');
-});
+Route::get('/users/create', 'UserController@create')->name('user.create');
 
-Route::get('/newpayment', function () {
-    return view('payment.new_payment');
-});
+Route::post('/users/create/save', 'UserController@store')->name('user.save');
 
-Route::get('/products', function () {
-    return view('product.products');
-});
+Route::get('/payments', 'PaymentController@index')->name('payment.index');
 
-Route::get('/newproduct', function () {
-    return view('product.new_product');
-});
+Route::get('/payments/create', 'PaymentController@create')->name('payment.create');
 
-Route::get('/locations', function () {
-    return view('location.locations');
-});
+Route::post('/payments/create/save', 'PaymentController@store')->name('payment.save');
 
-Route::get('/newlocation', function () {
-    return view('location.new_location');
-});
+Route::get('/products', 'ProductController@index')->name('product.index');
 
-Route::get('/invoice', function () {
-    return view('invoice.invoice');
-});
+Route::get('/products/create', 'ProductController@create')->name('product.create');
 
-Route::get('/newinvoice', function () {
-    return view('invoice.new_invoice');
-});
+Route::post('/products/create/save', 'ProductController@store')->name('product.save');
 
-Route::get('/receipts', function () {
-    return view('receipt.receipts');
-});
+Route::get('/locations', 'LocationController@index')->name('location.index');
 
-Route::get('/newreceipt', function () {
-    return view('receipt.new_receipt');
-});
+Route::get('/locations/create', 'LocationController@create')->name('location.create');
 
-Route::get('/orders', function () {
-    return view('order.orders');
-});
+Route::post('/locations/create/save', 'LocationController@store')->name('location.save');
 
-Route::get('/neworder', function () {
-    return view('order.new_order');
-});
+Route::get('/invoices', 'InvoiceController@index')->name('invoice.index');
 
-Route::get('/customers', function () {
-    return view('customer.customers');
-});
+Route::get('/invoices/create', 'InvoiceController@create')->name('invoice.create');
 
-Route::get('/newcustomer', function () {
-    return view('customer.new_customer');
-});
+Route::post('/invoices/create/save', 'InvoiceController@store')->name('invoice.save');
+
+Route::get('/receipts', 'ReceiptController@index')->name('receipt.index');
+
+Route::get('/receipts/create', 'ReceiptController@create')->name('receipt.create');
+
+Route::post('/receipts/create/save', 'ReceiptController@store')->name('receipt.save');
+
+Route::get('/orders', 'OrderController@index')->name('order.index');
+
+Route::get('/orders/create', 'OrderController@create')->name('order.create');
+
+Route::post('/orders/create/save', 'OrderController@store')->name('order.save');
+
+Route::get('/customers', 'CustomerController@index')->name('customer.index');
+
+Route::get('/customers/create', 'CustomerController@create')->name('customer.create');
+
+Route::post('/customers/create/save', 'CustomerController@store')->name('customer.save');
+
+// Route::get('/display-customer', 'CustomerController@show')->name('customer.show');
+
+

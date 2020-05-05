@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>PAYMENTS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{url('newpayment')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('payment.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create</span>
                                             </a>
@@ -40,7 +40,7 @@
                         </div>
 
 
-                        <div class="row">
+                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -49,51 +49,54 @@
                                             <table class="table m-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
+                                                    
+                                                        <th>Name</th>
+                                                        <th>Phone No.</th>
+                                                        <th>Account No.</th>
+                                                        <th>Transaction Code</th>
+                                                        <th>Amount</th>
+                                                        <th>Processed</th>
+                                                        <th>Remarks</th>
+                                                        <th>Actions</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                     @foreach ($payments as $payment)
+
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
+                                                
+                                                        <td>{{$payment->name}}</td>
+                                                        <td>{{$payment->phone_no}}</td>
+                                                        <td>{{$payment->account_no}}</td>
+                                                        <td>{{$payment->trans_code}}</td>
+                                                        <td>{{$payment->amount}}</td>
+                                                        <td>{{$payment->processed}}</td>
+                                                        <td>{{$payment->remarks}}</td>
+                                                        
+
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('payments')}}">View</a></button>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('payments')}}">Edit</a></button>
+                                                        </td>
+                                                         <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('payments')}}">Delete</a></button>
+                                                        </td>
+                                                       
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
+
+                                                    @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
-
-                            </div>
+                             </div>
                         </div>
-                        <!-- end row -->
+    <!-- end row -->
 
 @endsection

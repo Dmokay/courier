@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('from');
             $table->string('to');
             $table->longText('description');
-            $table->enum('stage',['sent', 'transit','received']);
+            $table->enum('stage',['Sent', 'Transit','Received']);
             $table->timestamps();
         });
     }

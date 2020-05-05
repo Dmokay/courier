@@ -14,7 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+        return view('order.orders', compact('orders'));
     }
 
     /**
@@ -24,7 +25,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+         return view('order.new_order');
     }
 
     /**
@@ -35,7 +36,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order($request->all());
+        $order->save();
+        return redirect()->route('order.index');
     }
 
     /**

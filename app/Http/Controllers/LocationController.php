@@ -14,7 +14,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $locations = Location::all();
+        return view('location.locations', compact('locations'));
     }
 
     /**
@@ -24,7 +25,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+       return view('location.new_location');
     }
 
     /**
@@ -35,7 +36,9 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $location = new Location($request->all());
+        $location->save();
+        return redirect()->route('location.index');
     }
 
     /**

@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>RECEIPTS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{url('newreceipt')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('receipt.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create </span>
                                             </a>
@@ -40,7 +40,7 @@
                         </div>
 
 
-                        <div class="row">
+                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -49,51 +49,45 @@
                                             <table class="table m-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
-                                                        <th>Table heading</th>
+                                                    
+                                                        <th>Amount</th>
+                                                        <th>Invoice Id</th>
+                                                        <th>Actions</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                     @foreach ($receipts as $receipt)
+
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
+                                                
+                                                        <td>{{$receipt->amount}}</td>
+                                                        <td>{{$receipt->invoice_id}}</td>
+                                                        
+                                                        
+
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('receipts')}}">View</a></button>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('receipts')}}">Edit</a></button>
+                                                        </td>
+                                                         <td>
+                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('receipts')}}">Delete</a></button>
+                                                        </td>
+                                                       
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
+
+                                                    @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
-
-                            </div>
+                             </div>
                         </div>
-                        <!-- end row -->
+    <!-- end row -->    
 
 @endsection

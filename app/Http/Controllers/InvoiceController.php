@@ -14,7 +14,8 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        $invoices = invoice::all();
+        return view('invoice.invoices', compact('invoices'));
     }
 
     /**
@@ -24,7 +25,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+         return view('invoice.new_invoice');
     }
 
     /**
@@ -35,7 +36,9 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $invoice = new Invoice($request->all());
+        $invoice->save();
+        return redirect()->route('invoice.index');
     }
 
     /**
