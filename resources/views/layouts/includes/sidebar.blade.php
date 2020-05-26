@@ -58,7 +58,7 @@
                             </li>
                             <li class="menu-title">Client Side</li>
                             <li>
-                                <a href="{{route('payment.index')}}">
+                                <a href="{{route('payments.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Payments </span>
                                 </a>
@@ -88,13 +88,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('orders')}}">
+                                <a href="{{route('order.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Orders </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{url('customers')}}">
+                                <a href="{{route('customers.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Customers </span>
                                 </a>

@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>CUSTOMERS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{route('customer.create')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('customers.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create Customer</span>
                                             </a>
@@ -67,18 +67,18 @@
                                                         <td>{{$customer->name}}</td>
                                                         <td>{{$customer->id_no}}</td>
                                                         <td>{{$customer->phone_no}}</td>
-                                                        <td>{{$customer->status}}</td>
-                                                        
-
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('customers')}}">View</a></button>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('customers')}}">Edit</a></button>
-                                                        </td>
+                                                        @if($customer->status == 1)
+                                                             <td class="badge badge-pill badge-success">{{$customer->decoded_status}}</td>
+                                                        @else
+                                                            <td class="badge badge-pill badge-danger">{{$customer->decoded_status}}</td>
+                                                        @endif
                                                          <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('customers')}}">Delete</a></button>
+                                                            <a href="{{route('customers.show', $customer->id)}}" class="text-success">View |</a>
+                                                            <a href="{{route('customers.edit', $customer->id)}}" class="text-primary">Edit |</a>
+                                                            <a href="{{url('edit_customer/'.$customer->id)}}" class="text-danger">Delete</a>
+                                                        
                                                         </td>
+                                                
                                                        
                                                     </tr>
 

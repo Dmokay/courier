@@ -28,6 +28,7 @@
             @include('layouts.includes.topbar')
 
             @include('layouts.includes.sidebar')
+            
             @yield('content')
 
         </div>

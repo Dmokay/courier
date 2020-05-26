@@ -48,7 +48,7 @@
                                         <div class="col-md-6 grid-margin stretch-card">
                                             <div class="card">
                                                 <div class="card-body">
-                                                <form class="forms-sample" form method="post" action="{{route('product.save')}}">
+                                                <form class="forms-sample" form method="post" action="{{route('product.store')}}">
                                                      @csrf
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Product Type</label>

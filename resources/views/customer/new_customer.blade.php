@@ -4,6 +4,38 @@
 
                         <div class="content-page">
                 <div class="content">
+                    @if (session('status'))
+    <div class="row" style="margin: 20px">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4><i class="icon fa fa-check"></i> Success!</h4>
+            {{session('status')}}
+        </div>
+    </div>
+@endif
+@if (session('error'))
+    <div class="row" style="margin: 20px">
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4><i class="icon fa fa-ban"></i> Error!</h4>
+            {{session('error')}}
+        </div>
+    </div>
+@endif
+@if (count($errors) > 0)
+    <div class="row" style="margin: 20px">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4><i class="icon fa fa-warning"></i> <strong>Whoops!</strong> There were some problems with your input.
+            </h4>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+@endif
                     <div class="container-fluid">
                         <div class="row page-title align-items-center">
                             <div class="col-sm-4 col-xl-6">
@@ -20,7 +52,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>CUSTOMERS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{route('customer.create')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('customers.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create</span>
                                             </a>
@@ -41,14 +73,14 @@
 
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
     
-                                        <div class="col-md-6 grid-margin stretch-card">
+                                        <div class="col-md-12 grid-margin stretch-card">
                                             <div class="card">
                                                 <div class="card-body">
-                                                <form class="forms-sample" form method="post" action="{{route('customer.save')}}">
+                                                <form class="forms-sample" form method="post" action="{{route('customers.store')}}">
                                                      @csrf
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Name</label>
@@ -56,18 +88,17 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Id Number</label>
-                                                            <input type="text" class="form-control" name="id_no" placeholder="id">
+                                                            <input type="number" value="{{old('id_no')}}" class="form-control" name="id_no" placeholder="id">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Phone Number</label>
-                                                            <input type="text" class="form-control" name="phone_no" placeholder="Phone No">
+                                                            <input type="number" required class="form-control" name="phone_no" placeholder="Phone No">
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="exampleInputEmail1">Status</label>
-                                                            <input type="text" class="form-control" name="status" placeholder="Status">
+                                                        <div>
+                                                            <button type="submit" class="btn btn-secondary btn-sm btn-block">Save
+                                                            </button>
                                                         </div>
-                                                            <button type="submit" class="btn btn-success mr-2">Save</button>
-                                                            <button class="btn btn-light">Cancel</button>
+                                                            
                                                 </form>
                                          </div>
                                         </div>

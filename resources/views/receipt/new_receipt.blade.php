@@ -48,7 +48,7 @@
                                         <div class="col-md-6 grid-margin stretch-card">
                                             <div class="card">
                                                 <div class="card-body">
-                                                <form class="forms-sample" form method="post" action="{{route('receipt.save')}}">
+                                                <form class="forms-sample" form method="post" action="{{route('receipt.store')}}">
                                                      @csrf
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Amount</label>
