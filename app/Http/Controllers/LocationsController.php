@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\receipt;
+use App\Model\location;
 use Illuminate\Http\Request;
 
-class ReceiptController extends Controller
+class LocationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        $receipts = Receipt::all();
-        return view('receipt.receipts', compact('receipts'));
+        $locations = Location::all();
+        return view('location.locations', compact('locations'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ReceiptController extends Controller
      */
     public function create()
     {
-         return view('receipt.new_receipt');
+        return view('location.new_location');
     }
 
     /**
@@ -36,18 +36,18 @@ class ReceiptController extends Controller
      */
     public function store(Request $request)
     {
-        $receipt = new Receipt($request->all());
-        $receipt->save();
-        return redirect()->route('receipt.index');
+       $location = new Location($request->all());
+       $location->save();
+        return redirect()->route('location.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\receipt  $receipt
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(receipt $receipt)
+    public function show($id)
     {
         //
     }
@@ -55,10 +55,10 @@ class ReceiptController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\receipt  $receipt
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(receipt $receipt)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +67,10 @@ class ReceiptController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\receipt  $receipt
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, receipt $receipt)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +78,10 @@ class ReceiptController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\receipt  $receipt
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(receipt $receipt)
+    public function destroy($id)
     {
         //
     }

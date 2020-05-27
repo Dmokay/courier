@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\invoice;
+use App\Model\product;
 use Illuminate\Http\Request;
 
-class InvoiceController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = invoice::all();
-        return view('invoice.invoices', compact('invoices'));
+        $products = Product::all();
+        return view('product.products', compact('products'));
     }
 
     /**
@@ -25,7 +25,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-         return view('invoice.new_invoice');
+        return view('product.new_product');
     }
 
     /**
@@ -36,18 +36,18 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        $invoice = new Invoice($request->all());
-        $invoice->save();
-        return redirect()->route('invoice.index');
+        $product = new Product($request->all());
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(invoice $invoice)
+    public function show($id)
     {
         //
     }
@@ -55,10 +55,10 @@ class InvoiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(invoice $invoice)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +67,10 @@ class InvoiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, invoice $invoice)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +78,10 @@ class InvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(invoice $invoice)
+    public function destroy($id)
     {
         //
     }

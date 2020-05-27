@@ -20,7 +20,7 @@
                                             <i class='uil uil-file-alt mr-1'></i>LOCATIONS
                                             <i class="icon"><span data-feather="chevron-down"></span></i></button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="{{route('location.create')}}" class="dropdown-item notify-item">
+                                            <a href="{{route('locations.create')}}" class="dropdown-item notify-item">
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create</span>
                                             </a>

@@ -86,4 +86,8 @@ class UserController extends Controller
     {
         //
     }
+
+    public function huduma($second, $first, Request $request){
+        dd($request->all());
+    }
 }

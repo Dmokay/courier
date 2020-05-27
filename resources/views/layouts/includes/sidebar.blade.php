@@ -64,31 +64,31 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('product.index')}}">
+                                <a href="{{route('products.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Products </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('location.index')}}">
+                                <a href="{{route('locations.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Locations </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('invoice.index')}}">
+                                <a href="{{route('invoices.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Invoice </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('receipt.index')}}">
+                                <a href="{{route('receipts.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Receipts </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('order.index')}}">
+                                <a href="{{route('orders.index')}}">
                                     <i data-feather="calendar"></i>
                                     <span> Orders </span>
                                 </a>

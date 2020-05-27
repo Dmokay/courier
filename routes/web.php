@@ -20,17 +20,20 @@ Route::get('/', function () {
 
 Route::resource('/user', 'UserController');
 
-Route::resource('/payments', 'PaymentController');
 
-Route::resource('/product', 'ProductController');
+Route::get('/tafuta/{kitambulisho}/{simu}', 'UserController@huduma');
 
-Route::resource('/location', 'LocationController');
+Route::resource('/payments', 'PaymentsController');
 
-Route::resource('/invoice', 'InvoiceController');
+Route::resource('/products', 'ProductsController');
 
-Route::resource('/receipt', 'ReceiptController');
+Route::resource('/locations', 'LocationsController');
 
-Route::resource('/order', 'OrderController');
+Route::resource('/invoices', 'InvoicesController');
+
+Route::resource('/receipts', 'ReceiptsController');
+
+Route::resource('/orders', 'OrdersController');
 
 Route::resource('/customers', 'CustomersController');
 

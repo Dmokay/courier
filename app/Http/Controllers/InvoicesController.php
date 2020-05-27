@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+ use App\Model\invoice;
 use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
@@ -13,7 +14,8 @@ class InvoicesController extends Controller
      */
     public function index()
     {
-        //
+        $invoices = invoice::all();
+        return view('invoice.invoices', compact('invoices'));
     }
 
     /**
@@ -23,7 +25,7 @@ class InvoicesController extends Controller
      */
     public function create()
     {
-        //
+        return view('invoice.new_invoice');
     }
 
     /**
@@ -34,7 +36,9 @@ class InvoicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $invoice = new Invoice($request->all());
+        $invoice->save();
+        return redirect()->route('invoice.index');
     }
 
     /**

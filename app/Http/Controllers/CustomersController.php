@@ -64,7 +64,7 @@ class CustomersController extends Controller
     {
         $customer = Customer::findOrFail($id);
 
-        return view('edit_customer')->withCustomer($customer);
+        return view('customer.edit_customer')->withCustomer($customer);
     }
 
     /**
@@ -76,7 +76,7 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $customer = Customer::find($request->id);
+        $customer = Customer::find($id);
         $customer->update($request->all());
         return redirect()->route('customers.index');
     }
