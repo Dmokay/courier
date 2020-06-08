@@ -75,14 +75,12 @@
                                                         
 
                                                         <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('orders')}}">View</a></button>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('orders')}}">Edit</a></button>
-                                                        </td>
-                                                         <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('orders')}}">Delete</a></button>
-                                                        </td>
+                                                            
+                                                            <a href="{{route('orders.show', $order->id)}}" class="text-success">View |</a>
+                                                            <a href="{{route('orders.edit', $order->id)}}" class="text-primary">Edit |</a>
+                                                            <a href="{{url('edit_order/'.$order->id)}}" class="text-danger">Delete</a>
+                                                        
+                                                         </td>
                                                        
                                                     </tr>
 

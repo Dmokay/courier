@@ -76,15 +76,13 @@
                                                         <td>{{$payment->remarks}}</td>
                                                         
 
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('payments')}}">View</a></button>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('payments')}}">Edit</a></button>
-                                                        </td>
                                                          <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('payments')}}">Delete</a></button>
-                                                        </td>
+                                                            
+                                                            <a href="{{route('payments.show', $payment->id)}}" class="text-success">View |</a>
+                                                            <a href="{{route('payments.edit', $payment->id)}}" class="text-primary">Edit |</a>
+                                                            <a href="{{url('edit_payment/'.$payment->id)}}" class="text-danger">Delete</a>
+                                                        
+                                                         </td>
                                                        
                                                     </tr>
 

@@ -70,15 +70,13 @@
                                                         <td>{{$location->remarks}}</td>
                                                         
 
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('locations')}}">View</a></button>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('locations')}}">Edit</a></button>
-                                                        </td>
                                                          <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('locations')}}">Delete</a></button>
-                                                        </td>
+                                                            
+                                                            <a href="{{route('locations.show', $location->id)}}" class="text-success">View |</a>
+                                                            <a href="{{route('locations.edit', $location->id)}}" class="text-primary">Edit |</a>
+                                                            <a href="{{url('edit_location/'.$location->id)}}" class="text-danger">Delete</a>
+                                                        
+                                                         </td>
                                                        
                                                     </tr>
 

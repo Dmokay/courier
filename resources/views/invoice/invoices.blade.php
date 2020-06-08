@@ -70,15 +70,13 @@
                                                         <td>{{$invoice->settled}}</td>
                                                         
 
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('invoices')}}">View</a></button>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('invoices')}}">Edit</a></button>
-                                                        </td>
                                                          <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('invoices')}}">Delete</a></button>
-                                                        </td>
+                                                            
+                                                            <a href="{{route('invoices.show', $invoice->id)}}" class="text-success">View |</a>
+                                                            <a href="{{route('invoices.edit', $invoice->id)}}" class="text-primary">Edit |</a>
+                                                            <a href="{{url('edit_invoice/'.$invoice->id)}}" class="text-danger">Delete</a>
+                                                        
+                                                         </td>
                                                        
                                                     </tr>
 

@@ -60,7 +60,7 @@
                                                 </thead>
                                                 <tbody>
 
-                                                     @foreach ($customers as $customer)
+                                                     @foreach ($customers as $customer) 
 
                                                     <tr>
                                                 
@@ -73,12 +73,41 @@
                                                             <td class="badge badge-pill badge-danger">{{$customer->decoded_status}}</td>
                                                         @endif
                                                          <td>
+                                                            
                                                             <a href="{{route('customers.show', $customer->id)}}" class="text-success">View |</a>
                                                             <a href="{{route('customers.edit', $customer->id)}}" class="text-primary">Edit |</a>
-                                                            <a href="{{url('edit_customer/'.$customer->id)}}" class="text-danger">Delete</a>
+                                                            <a href="#" class="text-danger" data-toggle="modal" data-target="#customer_1{{$customer->id}}">Delete</a>
+
+                                                            <!-- Modal -->
+<div class="modal fade" id="customer_1{{$customer->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">You are about to delete a record</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="{{route('customers.destroy', $customer->id)}}">
+
+        @csrf
+        {{ method_field('DELETE') }}
+
+        <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </div>
+          
+      </form>
+      
+    </div>
+  </div>
+</div>
                                                         
-                                                        </td>
-                                                
+                                                         </td>
                                                        
                                                     </tr>
 

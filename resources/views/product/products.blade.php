@@ -72,15 +72,13 @@
                                                         <td>{{$product->remarks}}</td>
                                                         
 
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('products')}}">View</a></button>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('products')}}">Edit</a></button>
-                                                        </td>
                                                          <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('products')}}">Delete</a></button>
-                                                        </td>
+                                                            
+                                                            <a href="{{route('products.show', $product->id)}}" class="text-success">View |</a>
+                                                            <a href="{{route('products.edit', $product->id)}}" class="text-primary">Edit |</a>
+                                                            <a href="{{url('edit_product/'.$product->id)}}" class="text-danger">Delete</a>
+                                                        
+                                                         </td>
                                                        
                                                     </tr>
 

@@ -67,15 +67,13 @@
                                                         
                                                         
 
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-secondary"><a href="{{url('receipts')}}">View</a></button>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-success"><a href="{{url('receipts')}}">Edit</a></button>
-                                                        </td>
                                                          <td>
-                                                            <button type="button" class="btn btn-rounded btn-outline-danger"><a href="{{url('receipts')}}">Delete</a></button>
-                                                        </td>
+                                                            
+                                                            <a href="{{route('receipts.show', $receipt->id)}}" class="text-success">View |</a>
+                                                            <a href="{{route('receipts.edit', $receipt->id)}}" class="text-primary">Edit |</a>
+                                                            <a href="{{url('edit_receipt/'.$receipt->id)}}" class="text-danger">Delete</a>
+                                                        
+                                                         </td>
                                                        
                                                     </tr>
 

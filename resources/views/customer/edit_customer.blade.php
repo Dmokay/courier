@@ -51,6 +51,7 @@
                                                 <form class="forms-sample" form method="POST" action="{{route('customers.update', $customer->id)}}">
                                                      @csrf
                                                      {{method_field('put')}}
+                                                
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Name</label>
                                                             <input type="text" class="form-control" name="name" value="{{$customer->name}}">
