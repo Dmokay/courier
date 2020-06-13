@@ -38,7 +38,7 @@ class ProductsController extends Controller
     {
         $product = new Product($request->all());
         $product->save();
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -49,7 +49,8 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $product  = product::find($id);
+        return view ('product.display_product', compact('product'));
     }
 
     /**
@@ -60,7 +61,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+         $product = product::findOrFail($id);
+
+         return view('product.edit_product')->withProduct($product);
     }
 
     /**
@@ -72,7 +75,9 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->update($request->all());
+        return redirect()->route('products.index');
     }
 
     /**
@@ -83,6 +88,8 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+
+        return redirect()->route('products.index')->with('msg', 'Record has been Deleted!');;
     }
 }

@@ -68,7 +68,12 @@
                                                         <td>{{$product->type}}</td>
                                                         <td>{{$product->price}}</td>
                                                         <td>{{$product->created_by}}</td>
-                                                        <td>{{$product->status}}</td>
+                                                        @if($product->status == 1)
+                                                             <td class="badge badge-pill badge-success">{{$product->decoded_status}}</td>
+                                                        @else
+                                                            <td class="badge badge-pill badge-danger">{{$product->decoded_status}}</td>
+                                                        @endif
+
                                                         <td>{{$product->remarks}}</td>
                                                         
 
@@ -76,7 +81,36 @@
                                                             
                                                             <a href="{{route('products.show', $product->id)}}" class="text-success">View |</a>
                                                             <a href="{{route('products.edit', $product->id)}}" class="text-primary">Edit |</a>
-                                                            <a href="{{url('edit_product/'.$product->id)}}" class="text-danger">Delete</a>
+                                                            <a href="#" class="text-danger" data-toggle="modal" data-target="#prd{{$product->id}}">Delete</a>
+
+                                                            <!-- Modal -->
+<div class="modal fade" id="prd{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">You are about to delete a record</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="{{route('products.destroy', $product->id)}}">
+
+        @csrf
+        {{ method_field('DELETE') }}
+
+        <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </div>
+          
+      </form>
+      
+    </div>
+  </div>
+</div>
                                                         
                                                          </td>
                                                        

@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
-@section('content')  
+@section('content') 
 
-                        <div class="content-page">
+ <div class="content-page">
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row page-title align-items-center">
@@ -24,12 +24,12 @@
                                                 <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Create</span>
                                             </a>
-                                            <a href="{{url('newproduct')}}" class="dropdown-item notify-item">
+                                            <a href="{{url('newcustomer')}}" class="dropdown-item notify-item">
                                                 <i data-feather="printer" class="icon-dual icon-xs mr-2"></i>
                                                 <span>View</span>
                                             </a>
                                             <div class="dropdown-divider"></div>
-                                            <a href="{{url('newproduct')}}" class="dropdown-item notify-item">
+                                            <a href="{{url('newcustomer')}}" class="dropdown-item notify-item">
                                                 <i data-feather="file" class="icon-dual icon-xs mr-2"></i>
                                                 <span>Update</span>
                                             </a>
@@ -48,29 +48,31 @@
                                         <div class="col-md-6 grid-margin stretch-card">
                                             <div class="card">
                                                 <div class="card-body">
-                                                <form class="forms-sample" form method="post" action="{{route('products.store')}}">
+                                                <form class="forms-sample" form method="POST" action="{{route('products.update', $product->id)}}">
                                                      @csrf
+                                                     {{method_field('put')}}
+                                                
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail1">Product Type</label>
-                                                            <input type="text" class="form-control" name="type" placeholder="Type">
+                                                            <label for="exampleInputEmail1">Type</label>
+                                                            <input type="text" class="form-control" name="type" value="{{$product->type}}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Price</label>
-                                                            <input type="text" class="form-control" name="price" placeholder="Price">
+                                                            <input type="text" class="form-control" name="price" value="{{$product->price}}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Created By</label>
-                                                            <input type="text" class="form-control" name="created_by" placeholder="created by">
+                                                            <input type="text" class="form-control" name="created_by" value="{{$product->created_by}}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Status</label>
-                                                            <input type="text" class="form-control" name="status" placeholder="Status">
+                                                            <input type="text" class="form-control" name="status" value="{{$product->status}}">
                                                         </div>
-                                                         <div class="form-group">
+                                                        <div class="form-group">
                                                             <label for="exampleInputEmail1">Remarks</label>
-                                                            <input type="text" class="form-control" name="remarks" placeholder="remarks">
+                                                            <input type="text" class="form-control" name="remarks" value="{{$product->remarks}}">
                                                         </div>
-                                                            <button type="submit" class="btn btn-success mr-2">Save</button>
+                                                            <button type="submit" class="btn btn-success mr-2">Update</button>
                                                             <button class="btn btn-light">Cancel</button>
                                                 </form>
                                          </div>
@@ -85,5 +87,6 @@
                         </div>
                     </div>
                         <!-- end row -->
+
 
 @endsection
